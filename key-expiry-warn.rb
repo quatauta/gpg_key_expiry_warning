@@ -1,7 +1,6 @@
 #!/bin/env ruby
 # frozen_string_literal: true
 
-require "awesome_print"
 require "gpgme"
 
 module GPGME
