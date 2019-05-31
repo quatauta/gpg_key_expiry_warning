@@ -2,7 +2,6 @@ GEM
   remote: https://rubygems.org/
   specs:
     ast (2.4.0)
-    awesome_print (1.8.0)
     gpgme (2.0.18)
       mini_portile2 (~> 2.3)
     jaro_winkler (1.5.2)
@@ -30,7 +29,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  awesome_print
   gpgme
   rake
   standard

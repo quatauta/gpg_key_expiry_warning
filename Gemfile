@@ -4,7 +4,9 @@ source "https://rubygems.org"
 
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
-gem "awesome_print"
 gem "gpgme"
-gem "rake"
-gem "standard"
+
+group :development do
+  gem "rake"
+  gem "standard"
+end
