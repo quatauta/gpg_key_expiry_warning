@@ -6,7 +6,7 @@ require "gpgme"
 
 module GPGME
   module KeyCommon
-    def expires_soon?(days = 3100)
+    def expires_soon?(days = 31)
       expires? && @expires < (Time.now + 60 * 60 * 24 * days).to_i
     end
   end
