@@ -1,6 +1,7 @@
 #!/bin/env ruby
 # frozen_string_literal: true
 
+require "cri"
 require "gpgme"
 
 module GPGME
@@ -11,6 +12,10 @@ module GPGME
   end
 
   class Key
+    def self.find_expires_soon(secret, keys_or_names = nil, purposes = [], days = 31)
+      find(secret, keys_or_names, purposes).select { |k| k.subkeys.any? { |sub| sub.expires_soon?(days) } }
+    end
+
     def to_s
       primary_subkey = subkeys[0]
       s = sprintf("%s   %s%d/0x%s %s [%s] [expires: %s]%s\n",
@@ -63,7 +68,50 @@ module GPGME
   end
 end
 
-GPGME::Key
-  .find(:secret)
-  .select { |k| k.subkeys.any? { |sub| sub.expires_soon? } }
-  .each { |key| puts key }
+module KeyExpiryWarning
+  class Command
+    def initialize
+      @command = define_command
+    end
+
+    def define_command
+      Cri::Command.define do
+        name        "#{$0}"
+        usage       "#{$0} [--days=DAYS] [--benchmark]"
+       #aliases     :ds, :stuff
+        summary     "Print your GnuPG keys which expire soon"
+        description "Print your own GnuPG (secret) keys which expire within 31 days, or the amount of days you specify."
+
+        flag :h, :help, "show help for this command" do |value, cmd|
+          puts cmd.help
+          exit 0
+        end
+
+        option :b, :benchmark, "Do a benchmark", argument: :forbidden
+        option :d, :days, "The number of days within keys expire", default: 31, argument: :required, transform: method(:Integer)
+
+        run do |opts, args, cmd|
+          days = opts.fetch(:days)
+          GPGME::Key.find_expires_soon(:secret, nil, [], days).each { |key| puts key }
+
+          if opts.fetch(:benchmark)
+            require "benchmark/ips"
+            Benchmark.ips do |bm|
+              [1, 31, 365, 365*2, 365*5].each do |days|
+                bm.report("#{days} days:") { GPGME::Key.find_expires_soon(:secret, nil, [], days) }
+              end
+            end
+          end
+        end
+      end
+    end
+
+    def run(opts_and_args)
+      @command.run(opts_and_args)
+    end
+  end
+end
+
+if $0 == __FILE__
+  KeyExpiryWarning::Command.new.run(ARGV)
+end
