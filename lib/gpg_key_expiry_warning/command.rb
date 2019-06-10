@@ -17,11 +17,11 @@ module GpgKeyExpiryWarning
       def run
         days = options.fetch(:days)
 
-        GPGME::Key.find(:secret).select { |key|
-          key.subkeys.any? { |sub|
+        GPGME::Key.find(:secret).select do |key|
+          key.subkeys.any? do |sub|
             sub.expires? && sub.expires < (Time.now + 60 * 60 * 24 * days)
-          }
-        }.each do |key|
+          end
+        end.each do |key|
           puts key.to_s
         end
       end
@@ -29,12 +29,12 @@ module GpgKeyExpiryWarning
 
     def define_command
       Cri::Command.define do
-        name        $0.to_s
-        usage       "#{$0} [--days=DAYS]"
+        name        $PROGRAM_NAME.to_s
+        usage       "#{$PROGRAM_NAME} [--days=DAYS]"
         summary     "Print your GnuPG keys which expire soon"
         description "Print your own GnuPG (secret) keys which expire within 31 days, or the amount of days you specify."
 
-        flag :h, :help, "show help for this command" do |value, cmd|
+        flag :h, :help, "show help for this command" do |_value, cmd|
           puts cmd.help
           exit 0
         end
