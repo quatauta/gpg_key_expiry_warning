@@ -3,7 +3,7 @@
 
 require "gpgme"
 
-module GPGKeyExpiryWarning
+module GpgKeyExpiryWarning
   module Refinements
     module GPGME
       refine ::GPGME::Key do
@@ -36,7 +36,7 @@ module GPGKeyExpiryWarning
             ::GPGME::PK_RSA => "rsa",
           }
 
-          pubkey_algo_names[GPGME::PK_ECC] = "ecc" if defined?(GPGME_PK_ECC)
+          pubkey_algo_names[GPGME::PK_ECC] = "ecc" if defined?(::GPGME_PK_ECC)
           pubkey_algo_names[@pubkey_algo] || "?"
         end
 

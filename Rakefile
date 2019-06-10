@@ -1,3 +1,7 @@
+require "bundler/gem_tasks"
+require "rspec/core/rake_task"
 require "standard/rake"
 
-task default: ["standard:fix"]
+RSpec::Core::RakeTask.new(:spec)
+
+task default: [:spec, "standard:fix"]

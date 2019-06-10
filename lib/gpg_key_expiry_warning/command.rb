@@ -5,14 +5,14 @@ require "cri"
 require "gpgme"
 require "gpg_key_expiry_warning/refinements/gpgme"
 
-module GPGKeyExpiryWarning
+module GpgKeyExpiryWarning
   class Command
     def initialize
       @command = define_command
     end
 
     class Runner < Cri::CommandRunner
-      using GPGKeyExpiryWarning::Refinements::GPGME
+      using GpgKeyExpiryWarning::Refinements::GPGME
 
       def run
         days = options.fetch(:days)
@@ -48,8 +48,4 @@ module GPGKeyExpiryWarning
       @command.run(opts_and_args)
     end
   end
-end
-
-if $0 == __FILE__
-  GPGKeyExpiryWarning::Command.new.run(ARGV)
 end

@@ -1,41 +1,50 @@
 # frozen_string_literal: true
 
-require_relative "lib/gpg_key_expiry_warning/version"
+lib = File.expand_path("../lib", __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require "gpg_key_expiry_warning/version"
 
-Gem::Specification.new do |s|
-  s.name        = "gpg_key_expiry_warning"
-  s.version     = GPGKeyExpiryWarning::VERSION
-  s.homepage    = "https://github.com/quatauta/gpg_key_expiry_warning"
-  s.summary     = "List GnuPG keys which expire soon"
-  s.description = ""
-  s.license     = "MIT"
+Gem::Specification.new do |spec|
+  spec.name        = "gpg_key_expiry_warning"
+  spec.version     = GpgKeyExpiryWarning::VERSION
+  spec.authors     = ["Daniel Schömer"]
+  spec.email       = ["daniel.schoemer@gmx.net"]
+  spec.summary     = "List GnuPG keys which expire soon"
+  spec.description = ""
+  spec.homepage    = "https://github.com/quatauta/gpg_key_expiry_warning"
+  spec.license     = "MIT"
 
-  if s.respond_to?(:metadata=)
-    s.metadata = {
-      "bug_tracker_uri" => "https://github.com/quatauta/gpg_key_expiry_warning/issues",
-      "changelog_uri" => "https://github.com/quatauta/gpg_key_expiry_warning/blob/master/CHANGELOG.md",
-      "homepage_uri" => "https://github.com/quatauta/gpg_key_expiry_warning",
-      "source_code_uri" => "https://github.com/quatauta/gpg_key_expiry_warning",
-    }
+  # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
+  # to allow pushing to a single host or delete this section to allow pushing to any host.
+  if spec.respond_to?(:metadata)
+    spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
+    spec.metadata["homepage_uri"] = spec.homepage
+    spec.metadata["source_code_uri"] = "https://github.com/quatauta/gpg_key_expiry_warning"
+    spec.metadata["changelog_uri"] = "https://github.com/quatauta/gpg_key_expiry_warning/blob/master/CHANGELOG.md"
+    spec.metadata["bug_tracker_uri"] = "https://github.com/quatauta/gpg_key_expiry_warning/issues"
+  else
+    raise "RubyGems 2.0 or newer is required to protect against public gem pushes."
   end
 
-  s.author = "Daniel Schömer"
-  s.email  = "daniel.schoemer@gmx.net"
+  # Specify which files should be added to the gem when it is released.
+  # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
+  spec.files = Dir.chdir(File.expand_path("..", __FILE__)) do
+    `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
+  end
 
-  s.required_ruby_version = "~> 2.3"
-  s.add_runtime_dependency "cri", ">= 2.15"
-  s.add_runtime_dependency "gpgme", ">= 2.0"
-  s.add_development_dependency "rake", ">= 12"
-  s.add_development_dependency "standard", ">= 0.0.40"
+  spec.bindir           = "exe"
+  spec.executables      = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  spec.require_paths    = ["lib"]
+  spec.extra_rdoc_files = ["LICENSE.txt", "README.md", "CODE_OF_CONDUCT.md"]
 
-  s.rdoc_options     = ["--main", "README.md"]
-  s.extra_rdoc_files = ["LICENSE", "README.md", "NEWS.md"]
+  spec.required_ruby_version = ">= 2.3"
 
-  s.files = ["gpg_key_expiry_warning.gemspec"]
-  s.files += Dir.glob("{bin,lib,test}/**/*", File::FNM_DOTMATCH).reject { |f| File.directory?(f) }
-  s.files += Dir["[A-Z]*"]
+  spec.add_development_dependency "bundler", "~> 2.0"
+  spec.add_development_dependency "pry", "~> 0.12"
+  spec.add_development_dependency "rake", "~> 12.3"
+  spec.add_development_dependency "rspec", "~> 3.0"
+  spec.add_development_dependency "standard", "~> 0.0.40"
 
-  s.bindir        = "bin"
-  s.executables   = %w[gpg_key_expiry_warning]
-  s.require_paths = ["lib"]
+  spec.add_runtime_dependency "cri", "~> 2.15"
+  spec.add_runtime_dependency "gpgme", "~> 2.0"
 end

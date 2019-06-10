@@ -3,4 +3,4 @@
 
 require "gpg_key_expiry_warning"
 
-GPGKeyExpiryWarning::Command.new.run(ARGV)
+GpgKeyExpiryWarning::Command.new.run(ARGV)
