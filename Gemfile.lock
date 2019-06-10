@@ -1,8 +1,14 @@
+PATH
+  remote: .
+  specs:
+    gpg_key_expiry_warning (0.1.0)
+      cri (>= 2.15)
+      gpgme (>= 2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
     ast (2.4.0)
-    benchmark-ips (2.7.2)
     cri (2.15.7)
     gpgme (2.0.18)
       mini_portile2 (~> 2.3)
@@ -14,6 +20,8 @@ GEM
     psych (3.1.0)
     rainbow (3.0.0)
     rake (12.3.2)
+    rake_tasks (5.1.1)
+      rake
     rubocop (0.67.2)
       jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
@@ -31,11 +39,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  benchmark-ips
-  cri
-  gpgme
-  rake
-  standard
+  gpg_key_expiry_warning!
+  rake (>= 12)
+  rake_tasks (>= 5)
+  standard (>= 0.0.40)
 
 BUNDLED WITH
    2.0.1
