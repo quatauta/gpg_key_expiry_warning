@@ -1,5 +1,4 @@
 #!/bin/env ruby
-# frozen_string_literal: true
 
 module GpgKeyExpiryWarning
   autoload :Command, "gpg_key_expiry_warning/command"

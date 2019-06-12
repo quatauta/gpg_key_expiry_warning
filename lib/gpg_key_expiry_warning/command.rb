@@ -1,5 +1,4 @@
 #!/bin/env ruby
-# frozen_string_literal: true
 
 require "cri"
 require "gpgme"
@@ -17,13 +16,21 @@ module GpgKeyExpiryWarning
       def run
         days = options.fetch(:days)
 
-        GPGME::Key.find(:secret).select do |key|
-          key.subkeys.any? do |sub|
-            sub.expires? && sub.expires < (Time.now + 60 * 60 * 24 * days)
-          end
-        end.each do |key|
+        Runner.find_keys(days).each do |key|
           puts key.to_s
         end
+      end
+
+      def self.find_keys(days)
+        GPGME::Key.find(:secret).select { |key| subkeys_expire?(key, days) }
+      end
+
+      def self.subkeys_expire?(key, days)
+        key.subkeys.any? { |subkey| key_expires?(subkey, days) }
+      end
+
+      def self.key_expires?(key, days)
+        key.expires? && key.expires < (Time.now + 60 * 60 * 24 * days)
       end
     end
 

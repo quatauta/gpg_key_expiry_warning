@@ -1,3 +1,5 @@
+require "simplecov"
+
 require "bundler/setup"
 require "gpg_key_expiry_warning"
 
