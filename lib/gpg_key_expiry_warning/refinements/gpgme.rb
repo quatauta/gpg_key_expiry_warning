@@ -1,5 +1,4 @@
 #!/bin/env ruby
-# frozen_string_literal: true
 
 require "gpgme"
 
@@ -9,23 +8,29 @@ module GpgKeyExpiryWarning
       refine ::GPGME::Key do
         def to_s
           primary_subkey = subkeys[0]
-          s = sprintf("%s   %s%d/0x%s %s [%s] [expires: %s]\n",
-            primary_subkey.secret? ? "sec" : "pub",
-            primary_subkey.pubkey_algo_name,
-            primary_subkey.length,
-            primary_subkey.fingerprint[-16..-1],
-            primary_subkey.timestamp.strftime("%Y-%m-%d"),
-            primary_subkey.capability_letters,
-            primary_subkey.expires.strftime("%Y-%m-%d"))
-          uids.each { |user_id| s << "uid                              #{user_id.name} <#{user_id.email}>\n" }
-          subkeys[1..].each { |subkey| s << subkey.to_s }
-          s
+          primary = {
+            type: primary_subkey.secret? ? "sec" : "pub",
+            algo: primary_subkey.pubkey_algo_name,
+            length: primary_subkey.length,
+            id: primary_subkey.fingerprint[-16..-1],
+            date: primary_subkey.timestamp.strftime("%Y-%m-%d"),
+            capabilities: primary_subkey.capability_letters,
+            expires: primary_subkey.expires.strftime("%Y-%m-%d"),
+          }
+          string = "%<type>s   %<algo>s%<length>d/0x%<id>s %<date>s [%<capabilities>s] [expires: %<expires>s]\n" % primary
+
+          uids.each do |user_id|
+            string << "uid                              #{user_id.name} <#{user_id.email}>\n"
+          end
+
+          subkeys[1..].each { |subkey| string << subkey.to_s }
+          string
         end
       end
 
       refine ::GPGME::SubKey do
         def capability_letters
-          capability.map { |c| c.to_s[0] }.join.upcase
+          capability.map { |capability| capability.to_s[0] }.join.upcase
         end
 
         def pubkey_algo_name
@@ -41,14 +46,17 @@ module GpgKeyExpiryWarning
         end
 
         def to_s
-          sprintf("%s   %s%d/0x%s %s [%s] [expires: %s]\n",
-            secret? ? "ssc" : "sub",
-            pubkey_algo_name,
-            length,
-            (@fpr || @keyid)[-16..-1],
-            timestamp.strftime("%Y-%m-%d"),
-            capability_letters,
-            expires.strftime("%Y-%m-%d"))
+          key = {
+            type: secret? ? "ssc" : "sub",
+            algo: pubkey_algo_name,
+            length: length,
+            id: (@fpr || @keyid)[-16..-1],
+            date: timestamp.strftime("%Y-%m-%d"),
+            capabilities: capability_letters,
+            expires: expires.strftime("%Y-%m-%d"),
+          }
+
+          "%<type>s   %<algo>s%<length>d/0x%<id>s %<date>s [%<capabilities>s] [expires: %<expires>s]\n" % key
         end
       end
     end
