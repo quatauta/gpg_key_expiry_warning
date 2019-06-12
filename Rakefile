@@ -17,4 +17,4 @@ task :fasterer do |task|
   sh "fasterer"
 end
 
-task default: ["bundle:audit", "fasterer", "rubycritic", "spec", "standard:fix"]
+task default: ["bundle:audit", "fasterer", "rubycritic", "spec", "standard:fix", "standard"]
