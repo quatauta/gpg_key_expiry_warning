@@ -1,6 +1,4 @@
-# frozen_string_literal: true
-
-lib = File.expand_path('lib', __dir__)
+lib = File.expand_path("lib", __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "gpg_key_expiry_warning/version"
 
@@ -37,13 +35,17 @@ Gem::Specification.new do |spec|
   spec.require_paths    = ["lib"]
   spec.extra_rdoc_files = ["LICENSE.txt", "README.md", "CODE_OF_CONDUCT.md"]
 
-  spec.required_ruby_version = ">= 2.3"
+  spec.required_ruby_version = ">= 2.6"
 
-  spec.add_development_dependency "bundler", "~> 2.0"
-  spec.add_development_dependency "pry", "~> 0.12"
-  spec.add_development_dependency "rake", "~> 12.3"
-  spec.add_development_dependency "rspec", "~> 3.0"
-  spec.add_development_dependency "standard", "~> 0.0.40"
+  spec.add_development_dependency "bundler", ">= 2.0"
+  spec.add_development_dependency "bundler-audit", ">= 0.6"
+  spec.add_development_dependency "fasterer", ">= 0.5"
+  spec.add_development_dependency "pry", ">= 0.12"
+  spec.add_development_dependency "rake", ">= 12.3"
+  spec.add_development_dependency "rspec", ">= 3"
+  spec.add_development_dependency "rubycritic", ">= 4"
+  spec.add_development_dependency "simplecov", ">= 0.0.40"
+  spec.add_development_dependency "standard", ">= 0.0.40"
 
   spec.add_runtime_dependency "cri", "~> 2.15"
   spec.add_runtime_dependency "gpgme", "~> 2.0"
