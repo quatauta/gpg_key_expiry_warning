@@ -1,7 +1,5 @@
 require "gpg_key_expiry_warning"
 require "gpg_key_expiry_warning/command"
-require "gpg_key_expiry_warning/refinements"
-require "gpg_key_expiry_warning/refinements/gpgme"
 require "gpg_key_expiry_warning/version"
 
 RSpec.describe GpgKeyExpiryWarning do

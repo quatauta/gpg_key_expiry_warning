@@ -2,7 +2,6 @@
 
 require "cri"
 require "gpgme"
-require "gpg_key_expiry_warning/refinements/gpgme"
 
 module GpgKeyExpiryWarning
   class Command
@@ -11,13 +10,11 @@ module GpgKeyExpiryWarning
     end
 
     class Runner < Cri::CommandRunner
-      using GpgKeyExpiryWarning::Refinements::GPGME
-
       def run
         days = options.fetch(:days)
 
         Runner.find_keys(days).each do |key|
-          puts key.to_s
+          puts key
         end
       end
 
