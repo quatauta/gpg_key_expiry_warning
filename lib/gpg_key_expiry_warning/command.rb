@@ -1,9 +1,8 @@
 #!/bin/env ruby
 
 require "cri"
-require "gpgme"
 
-module GpgKeyExpiryWarning
+module GPGKeyExpiryWarning
   class Command
     def initialize
       @command = define_command
@@ -11,23 +10,7 @@ module GpgKeyExpiryWarning
 
     class Runner < Cri::CommandRunner
       def run
-        days = options.fetch(:days)
-
-        Runner.find_keys(days).each do |key|
-          puts key
-        end
-      end
-
-      def self.find_keys(days)
-        GPGME::Key.find(:secret).select { |key| subkeys_expire?(key, days) }
-      end
-
-      def self.subkeys_expire?(key, days)
-        key.subkeys.any? { |subkey| key_expires?(subkey, days) }
-      end
-
-      def self.key_expires?(key, days)
-        key.expires? && key.expires < (Time.now + 60 * 60 * 24 * days)
+        puts "AA"
       end
     end
 

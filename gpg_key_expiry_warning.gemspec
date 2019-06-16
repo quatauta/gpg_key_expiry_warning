@@ -4,7 +4,7 @@ require "gpg_key_expiry_warning/version"
 
 Gem::Specification.new do |spec|
   spec.name        = "gpg_key_expiry_warning"
-  spec.version     = GpgKeyExpiryWarning::VERSION
+  spec.version     = GPGKeyExpiryWarning::VERSION
   spec.authors     = ["Daniel Schömer"]
   spec.email       = ["daniel.schoemer@gmx.net"]
   spec.summary     = "List GnuPG keys which expire soon"
@@ -48,5 +48,4 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "standard", ">= 0.0.40"
 
   spec.add_runtime_dependency "cri", "~> 2.15"
-  spec.add_runtime_dependency "gpgme", "~> 2.0"
 end
