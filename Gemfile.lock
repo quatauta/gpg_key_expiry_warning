@@ -134,7 +134,7 @@ DEPENDENCIES
   rake (>= 12.3)
   rspec (>= 3)
   rubycritic (>= 4)
-  simplecov (>= 0.0.40)
+  simplecov (>= 0.16)
   standard (>= 0.0.40)
 
 BUNDLED WITH
