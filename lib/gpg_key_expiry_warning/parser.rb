@@ -34,7 +34,7 @@ module GPGKeyExpiryWarning
       5 => {symbol: :id},
       6 => {symbol: :created, conversion: ->(created) { Parser.parse_datetime(created) }},
       7 => {symbol: :expires, conversion: ->(expires) { Parser.parse_datetime(expires) }},
-      #  8 => { symbol: :certificate_sn_uid_hash_trust_signature_info, },
+      # 8 => { symbol: :certificate_sn_uid_hash_trust_signature_info, },
       9 => {symbol: :ownertrust, conversion: ->(trust) { trust.to_sym }},
       10 => {symbol: :user_id},
       # 11 => { symbol: :signature_class, },
