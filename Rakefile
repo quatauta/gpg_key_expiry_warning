@@ -17,4 +17,11 @@ task :fasterer do |task|
   sh "fasterer"
 end
 
+namespace :spec do
+  desc "Run RSpec code examples and report to tmp/rspec.xml"
+  RSpec::Core::RakeTask.new(:junit) do |task|
+    task.rspec_opts = "--format RspecJunitFormatter --out tmp/rspec.xml"
+  end
+end
+
 task default: ["bundle:audit", "fasterer", "rubycritic", "spec", "standard:fix"]

@@ -47,6 +47,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rubycritic", ">= 4"
   spec.add_development_dependency "simplecov", ">= 0.16"
   spec.add_development_dependency "standard", ">= 0.0.40"
+  spec.add_development_dependency "rspec_junit_formatter", ">= 0.4"
 
   spec.add_runtime_dependency "cri", "~> 2.15"
 end
