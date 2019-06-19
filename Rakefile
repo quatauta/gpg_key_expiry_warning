@@ -24,4 +24,4 @@ namespace :spec do
   end
 end
 
-task default: ["bundle:audit", "fasterer", "rubycritic", "spec", "standard:fix"]
+multitask default: ["bundle:audit", "fasterer", "rubycritic", "spec", "standard:fix"]
