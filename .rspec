@@ -1,3 +1,4 @@
 --format Fuubar
+--format RspecJunitFormatter --out tmp/rspec.xml
 --color
 --require spec_helper
