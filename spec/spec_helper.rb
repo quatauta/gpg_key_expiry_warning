@@ -1,3 +1,5 @@
+ENV["LANG"] = nil
+
 require "simplecov"
 
 require "bundler/setup"
