@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ENV["LANG"] = nil
 
 require "simplecov"

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "gpg_key_expiry_warning"
 
 RSpec.describe GPGKeyExpiryWarning::Parser do
