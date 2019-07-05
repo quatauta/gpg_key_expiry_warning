@@ -39,17 +39,5 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = ">= 2.5"
 
-  spec.add_development_dependency "bundler", ">= 2.0"
-  spec.add_development_dependency "bundler-audit", ">= 0.6"
-  spec.add_development_dependency "fasterer", ">= 0.5"
-  spec.add_development_dependency "fuubar", ">= 2.4"
-  spec.add_development_dependency "pry", ">= 0.12"
-  spec.add_development_dependency "rake", ">= 12.3"
-  spec.add_development_dependency "rspec", ">= 3"
-  spec.add_development_dependency "rubycritic", ">= 4"
-  spec.add_development_dependency "simplecov", ">= 0.16"
-  spec.add_development_dependency "standard", ">= 0.0.40"
-  spec.add_development_dependency "rspec_junit_formatter", ">= 0.4"
-
   spec.add_runtime_dependency "cri", "~> 2.15"
 end
