@@ -1,0 +1,2 @@
+speedups:
+  block_vs_symbol_to_proc: false

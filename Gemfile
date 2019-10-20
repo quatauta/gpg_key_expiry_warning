@@ -10,6 +10,7 @@ group :development do
   gem "bundler-audit", ">= 0.6"
   gem "fasterer", ">= 0.5"
   gem "fuubar", ">= 2.4"
+  gem "libyear-bundler", ">= 0.5.2"
   gem "pry", ">= 0.12"
   gem "rake", ">= 12.3"
   gem "rspec", ">= 3"
