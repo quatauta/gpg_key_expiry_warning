@@ -8,6 +8,7 @@ gemspec
 group :development do
   gem "bundler", ">= 2.0"
   gem "bundler-audit", ">= 0.6"
+  gem "bundler-leak", ">= 0.1"
   gem "fasterer", ">= 0.5"
   gem "fuubar", ">= 2.4"
   gem "libyear-bundler", ">= 0.5.2"

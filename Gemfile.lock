@@ -17,6 +17,9 @@ GEM
     bundler-audit (0.6.1)
       bundler (>= 1.2.0, < 3)
       thor (~> 0.18)
+    bundler-leak (0.1.0)
+      bundler (>= 1.2.0, < 3)
+      thor (~> 0.18)
     codeclimate-engine-rb (0.4.1)
       virtus (~> 1.0)
     coderay (1.1.2)
@@ -133,6 +136,7 @@ PLATFORMS
 DEPENDENCIES
   bundler (>= 2.0)
   bundler-audit (>= 0.6)
+  bundler-leak (>= 0.1)
   fasterer (>= 0.5)
   fuubar (>= 2.4)
   gpg_key_expiry_warning!

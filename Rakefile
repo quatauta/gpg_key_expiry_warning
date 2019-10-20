@@ -5,8 +5,10 @@ require "bundler/gem_tasks"
 require "rspec/core/rake_task"
 require "rubycritic/rake_task"
 require "standard/rake"
+require "bundler/plumber/task"
 
 Bundler::Audit::Task.new
+Bundler::Plumber::Task.new
 
 RSpec::Core::RakeTask.new(:spec)
 
@@ -19,4 +21,4 @@ task :fasterer do |task|
   sh "fasterer"
 end
 
-task default: ["bundle:audit", "standard:fix", :fasterer, :rubycritic, :spec]
+task default: ["bundle:audit", "bundle:leak", "standard:fix", :fasterer, :rubycritic, :spec]
