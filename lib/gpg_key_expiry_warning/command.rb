@@ -17,9 +17,9 @@ module GPGKeyExpiryWarning
 
     def define_command
       Cri::Command.define do
-        name        $PROGRAM_NAME.to_s
-        usage       "#{$PROGRAM_NAME} [--days=DAYS]"
-        summary     "Print your GnuPG keys which expire soon"
+        name $PROGRAM_NAME.to_s
+        usage "#{$PROGRAM_NAME} [--days=DAYS]"
+        summary "Print your GnuPG keys which expire soon"
         description "Print your own GnuPG (secret) keys which expire within 31 days, or the amount of days you specify."
 
         flag :h, :help, "show help for this command" do |_value, cmd|

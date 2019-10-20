@@ -5,14 +5,14 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "gpg_key_expiry_warning/version"
 
 Gem::Specification.new do |spec|
-  spec.name        = "gpg_key_expiry_warning"
-  spec.version     = GPGKeyExpiryWarning::VERSION
-  spec.authors     = ["Daniel Schömer"]
-  spec.email       = ["daniel.schoemer@gmx.net"]
-  spec.summary     = "List GnuPG keys which expire soon"
+  spec.name = "gpg_key_expiry_warning"
+  spec.version = GPGKeyExpiryWarning::VERSION
+  spec.authors = ["Daniel Schömer"]
+  spec.email = ["daniel.schoemer@gmx.net"]
+  spec.summary = "List GnuPG keys which expire soon"
   spec.description = ""
-  spec.homepage    = "https://github.com/quatauta/gpg_key_expiry_warning"
-  spec.license     = "MIT"
+  spec.homepage = "https://github.com/quatauta/gpg_key_expiry_warning"
+  spec.license = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
@@ -32,9 +32,9 @@ Gem::Specification.new do |spec|
     `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   end
 
-  spec.bindir           = "exe"
-  spec.executables      = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
-  spec.require_paths    = ["lib"]
+  spec.bindir = "exe"
+  spec.executables = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  spec.require_paths = ["lib"]
   spec.extra_rdoc_files = ["LICENSE.txt", "README.md", "CODE_OF_CONDUCT.md"]
 
   spec.required_ruby_version = ">= 2.5"
