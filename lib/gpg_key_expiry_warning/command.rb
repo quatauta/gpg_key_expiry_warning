@@ -3,7 +3,7 @@
 
 require "cri"
 
-module GPGKeyExpiryWarning
+module GpgKeyExpiryWarning
   class Command
     def initialize
       @command = define_command

@@ -3,7 +3,7 @@
 
 require "date"
 
-module GPGKeyExpiryWarning
+module GpgKeyExpiryWarning
   class Parser
     # https://gitlab.com/openpgp-wg/rfc4880bis/blob/master/draft-koch-openpgp-rfc4880bis-02.txt,
     # section 9.1 Public Key Algorithms

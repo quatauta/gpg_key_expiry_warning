@@ -2,7 +2,8 @@ PATH
   remote: .
   specs:
     gpg_key_expiry_warning (0.1.0)
-      cri (~> 2.15)
+      cri (>= 2.15)
+      zeitwerk (>= 2.2)
 
 GEM
   remote: https://rubygems.org/
@@ -130,6 +131,7 @@ GEM
       coercible (~> 1.0)
       descendants_tracker (~> 0.0, >= 0.0.3)
       equalizer (~> 0.0, >= 0.0.9)
+    zeitwerk (2.2.1)
 
 PLATFORMS
   ruby

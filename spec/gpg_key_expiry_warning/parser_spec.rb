@@ -2,7 +2,7 @@
 
 require "gpg_key_expiry_warning"
 
-RSpec.describe GPGKeyExpiryWarning::Parser do
+RSpec.describe GpgKeyExpiryWarning::Parser do
   let(:key_data) {
     <<~KEY_DATA
       tru::1:1559213084:1609745466:3:1:5.rspec
@@ -65,7 +65,7 @@ RSpec.describe GPGKeyExpiryWarning::Parser do
 
   describe "::parse_keys/1" do
     it "parses key" do
-      parsed = GPGKeyExpiryWarning::Parser.parse_keys(key_data)
+      parsed = GpgKeyExpiryWarning::Parser.parse_keys(key_data)
       expect(parsed).to eq(key_parsed)
     end
   end

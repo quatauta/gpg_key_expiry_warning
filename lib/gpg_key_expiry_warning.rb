@@ -1,8 +1,11 @@
 #!/bin/env ruby
 # frozen_string_literal: true
 
-module GPGKeyExpiryWarning
-  autoload :Command, "gpg_key_expiry_warning/command"
-  autoload :Version, "gpg_key_expiry_warning/version"
-  autoload :Parser, "gpg_key_expiry_warning/parser"
+require "zeitwerk"
+loader = Zeitwerk::Loader.for_gem
+loader.setup
+
+module GpgKeyExpiryWarning
 end
+
+loader.eager_load
