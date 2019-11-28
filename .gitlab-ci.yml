@@ -1,0 +1,19 @@
+image: "ruby:2.6"
+
+cache:
+  paths:
+    - vendor/ruby
+
+before_script:
+  - ruby -v
+  - gem install bundler
+  - gem update bundler
+  - bundle install -j $(nproc) --path vendor  # Install dependencies into ./vendor/ruby
+
+rubocop:
+  script:
+    - bundler exec standardrb
+
+rspec:
+  script:
+    - bundler exec rspec spec
