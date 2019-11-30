@@ -8,41 +8,15 @@ cache:
 
 before_script:
   - ruby -v
-  - gem install --no-user-install --install-dir "vendor/ruby/$(basename $(gem environment gemdir))" bundler
-  - "vendor/ruby/$(basename $(gem environment gemdir))/bin/bundler" install -j $(nproc) --path vendor
+  - gem install bundler
+  - bundler install --quiet -j $(nproc) --path vendor
 
-standardrb rubocop:
-  script:
-    - bundler exec standardrb
-
-rspec:
-  script:
-    - bundler exec rspec spec
-
-fasterer:
-  script:
-    - bundle exec toys fasterer
-
-standardrb:
+test:
   script:
     - bundle exec toys standard
-
-bundle audit:
-  script:
     - bundle exec toys bundle audit
-
-bundle leak:
-  script:
     - bundle exec toys bundle leak
-
-rubycritic:
-  script:
     - bundle exec toys rubycritic
-
-rspec:
-  script:
     - bundle exec toys spec
-
-rspec xml:
-  script:
     - bundle exec toys spec xml
+
