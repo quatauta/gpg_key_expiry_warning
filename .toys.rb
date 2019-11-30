@@ -31,7 +31,7 @@ tool "rubycritic" do
   end
 
   def run
-    exec "rubycritic -m"
+    exec "rubycritic"
   end
 end
 
