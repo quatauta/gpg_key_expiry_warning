@@ -7,10 +7,9 @@ cache:
     - vendor/ruby
 
 before_script:
-  - GEM_VENDOR_DIR="vendor/ruby/$(basename $(gem environment gemdir))"
   - ruby -v
-  - gem install --no-user-install --install-dir "${GEM_VENDOR_DIR}" bundler
-  - "${GEM_VENDOR_DIR}/bin/bundle" install -j $(nproc) --path vendor
+  - gem install --no-user-install --install-dir "vendor/ruby/$(basename $(gem environment gemdir))" bundler
+  - "vendor/ruby/$(basename $(gem environment gemdir))/bin/bundler" install -j $(nproc) --path vendor
 
 standardrb rubocop:
   script:
