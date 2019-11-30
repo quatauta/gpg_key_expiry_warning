@@ -1,2 +1,5 @@
+exclude_paths:
+  - 'db/schema.rb'
+  - 'vendor/**/*.rb'
 speedups:
   block_vs_symbol_to_proc: false
