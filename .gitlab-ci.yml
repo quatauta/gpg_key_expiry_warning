@@ -6,6 +6,9 @@ cache:
   paths:
     - vendor/ruby
 
+variables:
+  LANG: "en_US.UTF-8"
+
 before_script:
   - ruby -v
   - gem install bundler
@@ -16,7 +19,6 @@ test:
     - bundle exec toys standard
     - bundle exec toys bundle audit
     - bundle exec toys bundle leak
-    - bundle exec toys rubycritic
     - bundle exec toys spec
     - bundle exec toys spec xml
 
