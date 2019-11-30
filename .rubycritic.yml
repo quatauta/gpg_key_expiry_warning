@@ -1,11 +1,6 @@
-mode_ci:
-  enabled: true # default is false
-  branch: 'production' # default is master
 no_browser: true
-formats:
-  - console
 paths:
-  - bin/
-  - exe/
-  - lib/
-  - spec/
+  - "bin/"
+  - "exe/"
+  - "lib/"
+  - "spec/"
