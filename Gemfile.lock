@@ -124,9 +124,6 @@ GEM
       rubocop-performance (~> 1.5.0)
     thor (0.20.3)
     thread_safe (0.3.6)
-    toys (0.8.1)
-      toys-core (= 0.8.1)
-    toys-core (0.8.1)
     tty-which (0.4.1)
     unicode-display_width (1.6.0)
     virtus (1.0.5)
@@ -154,7 +151,6 @@ DEPENDENCIES
   rubycritic (>= 4)
   simplecov (>= 0.16)
   standard (>= 0.0.40)
-  toys (>= 0.8)
 
 BUNDLED WITH
    2.0.2

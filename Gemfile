@@ -19,5 +19,4 @@ group :development do
   gem "rubycritic", ">= 4"
   gem "simplecov", ">= 0.16"
   gem "standard", ">= 0.0.40"
-  gem "toys", ">= 0.8"
 end
