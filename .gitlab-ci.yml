@@ -4,21 +4,22 @@ image: "ruby:2.6"
 
 cache:
   paths:
-    - vendor/ruby
+    - vendor
 
 variables:
   LANG: "en_US.UTF-8"
 
 before_script:
   - ruby -v
-  - gem install bundler
-  - bundler install --quiet -j $(nproc) --path vendor
+  - gem install --no-document bundler
+  - bundler install --deployment --quiet -j $(nproc)
 
 test:
+  stage: test
   script:
-    - bundle exec toys standard
-    - bundle exec toys bundle audit
-    - bundle exec toys bundle leak
-    - bundle exec toys spec
-    - bundle exec toys spec xml
-
+    - bundle exec rake -t ci
+  artifacts:
+    paths:
+      - tmp/
+    reports:
+      junit: tmp/rspec.xml
