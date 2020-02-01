@@ -5,6 +5,7 @@ ENV["LANG"] = nil
 require "simplecov"
 SimpleCov.start do
   command_name "RSpec"
+  enable_coverage :branch
 end
 
 require "bundler/setup"
