@@ -1,5 +1,9 @@
 # GPGKeyExpiryWarning
 
+This is a quite useless rubygem toy project to practice creating a rubygem with tests, style checks, linter and CI/CD.
+
+[![Pipeline](https://gitlab.com/%{project_path}/badges/%{default_branch}/pipeline.svg)](https://gitlab.com/%{project_path}/-/commits/%{default_branch})
+[![Coverage](https://gitlab.com/%{project_path}/badges/%{default_branch}/coverage.svg)](https://gitlab.com/%{project_path}/-/commits/%{default_branch})
 [![Ruby Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://github.com/testdouble/standard)
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/gpg_key_expiry_warning`. To experiment with that code, run `bin/console` for an interactive prompt.
