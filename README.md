@@ -11,16 +11,20 @@ TODO: Delete this and the text above, and describe your gem
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'gpg_key_expiry_warning'
+gem "gpg_key_expiry_warning"
 ```
 
 And then execute:
 
-    $ bundle
+```sh
+$ bundle
+```
 
 Or install it yourself as:
 
-    $ gem install gpg_key_expiry_warning
+```
+$ gem install gpg_key_expiry_warning
+```
 
 ## Usage
 
