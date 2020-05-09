@@ -10,9 +10,10 @@ inherit_gem:
 
 AllCops:
   Exclude:
+    - 'bin/**/*'
     - 'db/**/*'
     - 'script/**/*'
-    - 'bin/**/*'
+    - 'vendor/**/*'
 
 Layout/ClassStructure:
   Enabled: true
