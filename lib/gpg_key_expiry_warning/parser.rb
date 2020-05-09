@@ -14,20 +14,22 @@ module GpgKeyExpiryWarning
       19 => :ecdsa,
       20 => :reserved_elgamal_encrypt_or_sign,
       21 => :dh,
-      22 => :eddsa,
+      22 => :eddsa
     }
+    public_constant :ALGORITHMS
 
     CAPABILITIES = {
       a: :auth,
       c: :cert,
       e: :encrypt,
-      s: :sign,
+      s: :sign
     }
+    public_constant :CAPABILITIES
 
     FIELDS = {
       1 => {symbol: :type, conversion: ->(type) { type.to_sym }},
       2 => {symbol: :validity, conversion: ->(validity) { validity.to_sym }},
-      3 => {symbol: :length, conversion: ->(length) { length.to_i }},
+      3 => {symbol: :length, conversion: ->(length) { Integer(length, 10) }},
       4 => {symbol: :algorithm, conversion: ->(algorithm) { Parser.parse_algorithm(algorithm) }},
       5 => {symbol: :id},
       6 => {symbol: :created, conversion: ->(created) { Parser.parse_datetime(created) }},
@@ -43,13 +45,14 @@ module GpgKeyExpiryWarning
       # 16 => { symbol: :hash_algorithm, },
       # 17 => { symbol: :curve_name, },
       # 18 => { symbol: :compliance_flags, },
-      19 => {symbol: :updated, conversion: ->(updated) { Parser.parse_datetime(updated) }},
+      19 => {symbol: :updated, conversion: ->(updated) { Parser.parse_datetime(updated) }}
       # 20 => { symbol: :origin, },
       # 21 => { symbol: :comment, },
     }
+    public_constant :FIELDS
 
     def self.parse_algorithm(text)
-      ALGORITHMS[text.to_i] || :unknown
+      ALGORITHMS[Integer(text, 10)] || :unknown
     end
 
     def self.parse_capabilities(text)
@@ -58,9 +61,9 @@ module GpgKeyExpiryWarning
 
     def self.parse_datetime(text)
       if /\A[0-9]+\Z/.match?(text)
-        Time.at(text.to_i)
+        Time.at(Integer(text, 10))
       else
-        DateTime.parse(text).to_time
+        DateTime.parse(text).to_time # rubocop:disable Style/DateTime
       end
     end
 
