@@ -50,8 +50,6 @@ GEM
       rspec-core (~> 3.0)
       ruby-progressbar (~> 1.4)
     ice_nine (0.11.2)
-    imagen (0.1.8)
-      parser (>= 2.5, != 2.5.1.1)
     jaro_winkler (1.5.4)
     kwalify (0.7.2)
     launchy (2.4.3)
@@ -122,7 +120,6 @@ GEM
       simplecov (>= 0.17.0)
       tty-which (~> 0.4.0)
       virtus (~> 1.0)
-    rugged (1.0.0)
     sexp_processor (4.14.1)
     simplecov (0.18.5)
       docile (~> 1.1)
@@ -139,10 +136,6 @@ GEM
     thor (0.20.3)
     thread_safe (0.3.6)
     tty-which (0.4.2)
-    undercover (0.3.4)
-      imagen (>= 0.1.8)
-      rainbow (>= 2.1, < 4.0)
-      rugged (>= 0.27, < 1.1)
     unicode-display_width (1.7.0)
     virtus (1.0.5)
       axiom-types (~> 0.1)
@@ -175,7 +168,6 @@ DEPENDENCIES
   simplecov (>= 0.16)
   skunk (>= 0.4.2)
   standard (>= 0.0.40)
-  undercover (>= 0.3.4)
 
 BUNDLED WITH
    2.1.4

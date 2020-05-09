@@ -47,5 +47,4 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "simplecov", ">= 0.16"
   spec.add_development_dependency "skunk", ">= 0.4.2"
   spec.add_development_dependency "standard", ">= 0.0.40"
-  spec.add_development_dependency "undercover", ">= 0.3.4"
 end
