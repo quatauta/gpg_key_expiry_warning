@@ -6,9 +6,12 @@ This is a quite useless rubygem toy project to practice creating a rubygem with 
 [![Coverage](https://gitlab.com/quatauta/gpg_key_expiry_warning/badges/master/coverage.svg)](https://gitlab.com/quatauta/gpg_key_expiry_warning/-/commits/master)
 [![Ruby Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://github.com/testdouble/standard)
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/gpg_key_expiry_warning`. To experiment with that code, run `bin/console` for an interactive prompt.
+## Rubygems Best Practices
 
-TODO: Delete this and the text above, and describe your gem
+* [Gem Check - Writing Better Ruby Gems Checklist](https://gemcheck.evilmartians.io/)
+* [Open Source Guides - Learn how to launch and grow your project](https://opensource.guide/)
+* [The Twelve-Factor App](https://12factor.net/)
+* [Keep a Changelog](https://keepachangelog.com/)
 
 ## Installation
 
@@ -26,7 +29,7 @@ $ bundle
 
 Or install it yourself as:
 
-```
+```sh
 $ gem install gpg_key_expiry_warning
 ```
 
