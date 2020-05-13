@@ -20,7 +20,21 @@ test:
   script:
     - bundle exec rake -t ci
   artifacts:
+    expire_in: 7 days
     paths:
       - tmp/
     reports:
       junit: tmp/rspec.xml
+
+pages:
+  stage: deploy
+  dependencies:
+    - test
+  script:
+    - mv tmp/coverage/ public/
+  artifacts:
+    paths:
+      - public
+    expire_in: 7 days
+  only:
+    - master
