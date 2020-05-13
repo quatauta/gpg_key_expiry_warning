@@ -11,7 +11,6 @@ variables:
 
 before_script:
   - ruby -v
-  - gem update --quiet --no-document
   - gem install --quiet --no-document bundler
   - bundle config set deployment 'true'
   - bundler install --quiet -j $(nproc)
