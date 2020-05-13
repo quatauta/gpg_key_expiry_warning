@@ -9,6 +9,10 @@ cache:
 variables:
   LANG: "en_US.UTF-8"
 
+include:
+  - template: Dependency-Scanning.gitlab-ci.yml
+  - template: License-Scanning.gitlab-ci.yml
+
 before_script:
   - ruby -v
   - gem install --quiet --no-document bundler
