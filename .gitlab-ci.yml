@@ -2,16 +2,17 @@
 
 image: "ruby:2.7"
 
+include:
+  - template: Dependency-Scanning.gitlab-ci.yml
+  - template: License-Scanning.gitlab-ci.yml
+
 cache:
   paths:
     - vendor
 
 variables:
   LANG: "en_US.UTF-8"
-
-include:
-  - template: Dependency-Scanning.gitlab-ci.yml
-  - template: License-Scanning.gitlab-ci.yml
+  DS_DISABLE_DIND: "true"
 
 test:
   stage: test
