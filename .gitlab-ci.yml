@@ -13,15 +13,13 @@ include:
   - template: Dependency-Scanning.gitlab-ci.yml
   - template: License-Scanning.gitlab-ci.yml
 
-before_script:
-  - ruby -v
-  - gem install --quiet --no-document bundler
-  - bundle config set deployment 'true'
-  - bundler install --quiet -j $(nproc)
-
 test:
   stage: test
   script:
+    - ruby -v
+    - gem install --quiet --no-document bundler
+    - bundle config set deployment 'true'
+    - bundler install --quiet -j $(nproc)
     - bundle exec rake -t ci
   artifacts:
     expire_in: 7 days
