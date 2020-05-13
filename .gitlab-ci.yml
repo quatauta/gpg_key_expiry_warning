@@ -5,6 +5,7 @@ image: "ruby:2.7"
 include:
   - template: Dependency-Scanning.gitlab-ci.yml
   - template: License-Scanning.gitlab-ci.yml
+  - template: SAST.gitlab-ci.yml
 
 cache:
   paths:
@@ -13,6 +14,7 @@ cache:
 variables:
   LANG: "en_US.UTF-8"
   DS_DISABLE_DIND: "true"
+  SAST_DISABLE_DIND: "true"
 
 test:
   stage: test
