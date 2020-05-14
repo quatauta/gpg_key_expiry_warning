@@ -16,12 +16,6 @@ RubyCritic::RakeTask.new do |task|
   task.options = "--no-browser"
 end
 
-RubyCritic::RakeTask.new do |task|
-  task.name = "rubycritic:ci"
-  task.paths = FileList["{bin,exe,lib,spec}/**/*.rb"]
-  task.options = "--no-browser --mode-ci --format json"
-end
-
 desc "Run fasterer"
 task :fasterer do
   sh "fasterer"
@@ -32,8 +26,8 @@ task :skunk do
   sh "skunk"
 end
 
-desc "Run tasks for CI (bundle:audit bundle:leak rubocop standard fasterer rubycritic:ci skunk spec)"
-task ci: ["bundle:audit", "bundle:leak", :rubocop, :standard, :fasterer, "rubycritic:ci", :skunk, :spec]
+desc "Run tasks for CI (bundle:audit bundle:leak rubocop standard fasterer rubycritic skunk spec)"
+task ci: ["bundle:audit", "bundle:leak", :rubocop, :standard, :fasterer, "rubycritic", :skunk, :spec]
 
 desc "Run standard:fix and CI tasks"
 task default: ["standard:fix", :ci]
