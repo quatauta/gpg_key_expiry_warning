@@ -26,7 +26,7 @@ test:
     - bundler install --quiet -j $(nproc)
     - bundle exec rake -t ci
   artifacts:
-    expire_in: 7 days
+    expire_in: 1 day
     paths:
       - tmp/
     reports:
@@ -37,10 +37,11 @@ pages:
   dependencies:
     - test
   script:
-    - mv tmp/coverage/ public/
+    - mv tmp/coverage/ public/coverage
+    - mv tmp/rubycritic/ public/rubycritic
   artifacts:
     paths:
       - public
-    expire_in: 7 days
+    expire_in: 1 day
   only:
     - master
