@@ -14,7 +14,7 @@ cache:
 variables:
   DS_DISABLE_DIND: "true"
   LANG: "en_US.UTF-8"
-  SAST_DEFAULT_ANALYZERS: "bandit, brakeman, gosec, spotbugs, flawfinder, phpcs-security-audit, security-code-scan, nodejs-scan, eslint, tslint, secrets, sobelow, pmd-apex, kubesec"
+  SAST_DEFAULT_ANALYZERS: "bandit, gosec, spotbugs, flawfinder, phpcs-security-audit, security-code-scan, nodejs-scan, eslint, tslint, secrets, sobelow, pmd-apex, kubesec"
   SAST_DISABLE_DIND: "true"
 
 test:
