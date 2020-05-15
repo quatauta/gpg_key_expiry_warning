@@ -37,6 +37,8 @@ pages:
   dependencies:
     - test
   script:
+    - mkdir -p public
+    - mv pages-coverage-index.html public/index.html
     - mv tmp/coverage/ public/coverage
     - mv tmp/rubycritic/ public/rubycritic
   artifacts:
