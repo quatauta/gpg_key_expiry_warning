@@ -21,6 +21,7 @@ test:
   stage: test
   script:
     - ruby -v
+    - ruby -e "puts Encoding.default_external"
     - gem install --quiet --no-document bundler
     - bundle config set deployment 'true'
     - bundler install --quiet -j $(nproc)
