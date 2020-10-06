@@ -23,7 +23,7 @@ end
 
 desc "Run skunk"
 task :skunk do
-  sh "skunk"
+  sh "bundle exec skunk"
 end
 
 desc "Run tasks for CI (bundle:audit bundle:leak rubocop standard fasterer rubycritic skunk spec)"
