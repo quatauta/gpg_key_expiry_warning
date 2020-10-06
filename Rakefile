@@ -18,7 +18,7 @@ end
 
 desc "Run fasterer"
 task :fasterer do
-  sh "fasterer"
+  sh "bundle exec fasterer"
 end
 
 desc "Run skunk"
