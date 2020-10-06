@@ -26,6 +26,11 @@ task :skunk do
   sh "bundle exec skunk"
 end
 
+desc "Run libyear-bundler to measure dependency freshness"
+task :libyear do
+  sh "bundle exec libyear-bundler --all"
+end
+
 desc "Run tasks for CI (bundle:audit bundle:leak rubocop standard fasterer rubycritic skunk spec)"
 task ci: ["bundle:audit", "bundle:leak", :rubocop, :standard, :fasterer, "rubycritic", :skunk, :spec]
 
