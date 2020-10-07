@@ -33,8 +33,8 @@ end
 
 desc 'Look for incremental quality issues'
 task :pronto do
-  sh "bundle exec pronto run -c origin/master --unstaged || true"
-  sh "bundle exec pronto run -c origin/master --staged || true"
+  sh "bundle exec pronto run -c origin/master --unstaged"
+  sh "bundle exec pronto run -c origin/master --staged"
   sh "bundle exec pronto run -c origin/master"
 end
 
