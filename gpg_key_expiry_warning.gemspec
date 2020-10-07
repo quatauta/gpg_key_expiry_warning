@@ -51,7 +51,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "pronto-bundler_audit", ">= 0.6.0"
   spec.add_development_dependency "pronto-fasterer", ">= 0.10.0"
   spec.add_development_dependency "pronto-json", ">= 0.1.5"
-  spec.add_development_dependency "pronto-reek", ">= 0.10.0"
   spec.add_development_dependency "pronto-rspec", ">= 0.0.1"
   spec.add_development_dependency "pronto-rubocop", ">= 0.10.0"
   spec.add_development_dependency "pronto-shellcheck", ">= 0.1.4"

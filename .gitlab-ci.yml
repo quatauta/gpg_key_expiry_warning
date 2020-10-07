@@ -21,6 +21,7 @@ variables:
 test:
   stage: test
   script:
+    - apt-get install -q cmake && apt-get clean
     - ruby -v
     - ruby -e "puts Encoding.default_external"
     - gem install --quiet --no-document bundler
