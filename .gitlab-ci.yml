@@ -44,8 +44,8 @@ pages:
     - mv pages-coverage-index.html public/index.html
     - mv tmp/coverage/ public/coverage
     - mv tmp/rubycritic/ public/rubycritic
-    - command -v gzip   && find public -type f -regex '.*\.\(htm\|html\|txt\|text\|js\|css\)$' -print0 | xargs -0r gzip -f -k
-    - command -v brotli && find public -type f -regex '.*\.\(htm\|html\|txt\|text\|js\|css\)$' -print0 | xargs -0r brotli -f -k
+    - command -v gzip   && find public -type f -regex '.*\.\(htm\|html\|txt\|text\|js\|css\)$' -print0 | xargs -0r gzip   -f -k ; true
+    - command -v brotli && find public -type f -regex '.*\.\(htm\|html\|txt\|text\|js\|css\)$' -print0 | xargs -0r brotli -f -k ; true
   artifacts:
     paths:
       - public
