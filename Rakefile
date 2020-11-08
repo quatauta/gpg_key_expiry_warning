@@ -31,13 +31,6 @@ task :libyear do
   sh "bundle exec libyear-bundler --all"
 end
 
-desc "Look for incremental quality issues"
-task :pronto do
-  sh "bundle exec pronto run -c origin/master --unstaged"
-  sh "bundle exec pronto run -c origin/master --staged"
-  sh "bundle exec pronto run -c origin/master"
-end
-
 desc "Run tasks for CI (bundle:audit bundle:leak rubocop standard fasterer rubycritic skunk spec)"
 task ci: %i[bundle:audit bundle:leak rubocop standard fasterer rubycritic skunk spec]
 
