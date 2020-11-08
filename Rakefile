@@ -39,7 +39,7 @@ task :pronto do
 end
 
 desc "Run tasks for CI (bundle:audit bundle:leak rubocop standard fasterer rubycritic skunk spec)"
-task ci: ["bundle:audit", "bundle:leak", :rubocop, :standard, :fasterer, "rubycritic", :skunk, :spec]
+task ci: %i[bundle:audit bundle:leak rubocop standard fasterer rubycritic skunk spec]
 
 desc "Run standard:fix and CI tasks"
-task default: ["standard:fix", :ci]
+task default: %i[standard:fix ci]
