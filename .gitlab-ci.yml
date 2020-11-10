@@ -6,6 +6,7 @@ include:
   - template: 'Dependency-Scanning.gitlab-ci.yml'
   - template: 'License-Scanning.gitlab-ci.yml'
   - template: 'SAST.gitlab-ci.yml'
+  - template: 'Security/Secret-Detection.gitlab-ci.yml'
   - template: 'Workflows/MergeRequest-Pipelines.gitlab-ci.yml'
 
 cache:
