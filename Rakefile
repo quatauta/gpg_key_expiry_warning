@@ -31,8 +31,11 @@ task :libyear do
   sh "bundle exec libyear-bundler --all"
 end
 
-desc "Run tasks for CI (bundle:audit bundle:leak rubocop standard fasterer rubycritic skunk spec)"
-task ci: %i[bundle:audit bundle:leak rubocop standard fasterer rubycritic skunk spec]
+desc "Run tests"
+task test: %i[spec]
+
+desc "Run tasks for CI (bundle:audit bundle:leak rubocop standard fasterer rubycritic skunk test)"
+task ci: %i[bundle:audit bundle:leak rubocop standard fasterer rubycritic skunk test]
 
 desc "Run standard:fix and CI tasks"
 task default: %i[standard:fix ci]
