@@ -10,6 +10,7 @@ GEM
   specs:
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    amazing_print (1.2.2)
     ast (2.4.1)
     axiom-types (0.1.1)
       descendants_tracker (~> 0.0.4)
@@ -148,6 +149,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  amazing_print (>= 1.2)
   bundler (>= 2.0)
   bundler-audit (>= 0.7)
   bundler-leak (>= 0.2)
