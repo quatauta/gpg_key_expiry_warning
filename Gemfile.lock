@@ -3,7 +3,7 @@ PATH
   specs:
     gpg_key_expiry_warning (0.1.0)
       cri (>= 2.15)
-      zeitwerk (>= 2.2)
+      zeitwerk (>= 2.4)
 
 GEM
   remote: https://rubygems.org/
@@ -150,7 +150,7 @@ PLATFORMS
 
 DEPENDENCIES
   amazing_print (>= 1.2)
-  bundler (>= 2.0)
+  bundler (>= 2.1)
   bundler-audit (>= 0.7)
   bundler-leak (>= 0.2)
   fasterer (>= 0.8)
@@ -159,16 +159,16 @@ DEPENDENCIES
   libyear-bundler (>= 0.5)
   pry (>= 0.13)
   rake (>= 13.0)
-  rspec (>= 3.9)
+  rspec (>= 3.10)
   rspec_junit_formatter (>= 0.4)
-  rubocop (>= 1.0)
+  rubocop (>= 1.2)
   rubocop-performance (>= 1.8)
   rubocop-rake (>= 0.5)
   rubocop-rspec (>= 1.42)
   rubycritic (>= 4.5)
   simplecov (>= 0.19)
   skunk (>= 0.4)
-  standard (>= 0.8)
+  standard (>= 0.9)
 
 BUNDLED WITH
    2.1.4
