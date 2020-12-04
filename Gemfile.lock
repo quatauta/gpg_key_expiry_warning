@@ -131,7 +131,7 @@ GEM
     skunk (0.4.2)
       rubycritic (~> 4.0)
       terminal-table (~> 1.8.0)
-    standard (0.10.1)
+    standard (0.10.2)
       rubocop (= 1.4.2)
       rubocop-performance (= 1.9.1)
     terminal-table (1.8.0)
