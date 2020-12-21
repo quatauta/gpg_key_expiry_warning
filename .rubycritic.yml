@@ -1,3 +1,4 @@
+---
 no_browser: true
 paths:
   - "bin/"
