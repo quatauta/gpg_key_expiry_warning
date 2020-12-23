@@ -17,7 +17,7 @@ Gem::Specification.new do |spec|
   spec.metadata["source_code_uri"] = "https://github.com/quatauta/gpg_key_expiry_warning"
   spec.metadata["bug_tracker_uri"] = "https://github.com/quatauta/gpg_key_expiry_warning/issues"
 
-  spec.files = Dir.glob("{bin,lib}/**/*.*")
+  spec.files = Dir.glob("{bin,exe,lib}/**/*")
   spec.test_files = Dir.glob("{test,spec,features}/**/*.*")
 
   spec.bindir = "exe"
