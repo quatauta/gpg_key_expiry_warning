@@ -6,9 +6,14 @@ require:
   - rubocop-rspec
 
 inherit_gem:
-  standard: config/ruby-2.2.yml
+  standard: config/base.yml
+  rubocop-performance: config/default.yml
+  rubocop-rake: config/default.yml
+  rubocop-rspec: config/default.yml
 
 AllCops:
+  NewCops: enable
+  DisabledByDefault: false
   Exclude:
     - 'db/**/*'
     - 'vendor/**/*'
@@ -21,6 +26,9 @@ Lint/HeredocMethodCallPosition:
 
 Lint/NumberConversion:
   Enabled: true
+
+Metrics/BlockLength:
+  ExcludedMethods: ["describe", "context", "let"]
 
 Style/AutoResourceCleanup:
   Enabled: true

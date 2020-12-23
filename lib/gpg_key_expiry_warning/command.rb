@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "cri"
 
 module GpgKeyExpiryWarning

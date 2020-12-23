@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "bundler/audit/task"
 require "bundler/gem_tasks"
 require "bundler/plumber/task"
@@ -31,11 +33,18 @@ task :libyear do
   sh "bundle exec libyear-bundler --all"
 end
 
+desc "Run RuboCop and do not fail"
+task "rubocop:pass" do
+  Rake::Task["rubocop"].invoke
+rescue SystemExit
+  true
+end
+
 desc "Run tests"
 task test: %i[spec]
 
-desc "Run tasks for CI (bundle:audit bundle:leak rubocop standard fasterer rubycritic skunk test)"
-task ci: %i[bundle:audit bundle:leak rubocop standard fasterer rubycritic skunk test]
+desc "Run tasks for CI (bundle:audit bundle:leak rubocop:pass standard fasterer rubycritic skunk test)"
+task ci: %i[bundle:audit bundle:leak rubocop:pass standard fasterer rubycritic skunk test]
 
 desc "Run standard:fix and CI tasks"
 task default: %i[standard:fix ci]

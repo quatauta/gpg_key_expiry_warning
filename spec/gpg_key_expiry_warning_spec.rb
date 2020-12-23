@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "gpg_key_expiry_warning"
 require "gpg_key_expiry_warning/version"
 

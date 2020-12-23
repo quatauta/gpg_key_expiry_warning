@@ -1,6 +1,9 @@
+# frozen_string_literal: true
+
 require "date"
 
 module GpgKeyExpiryWarning
+  # Parse keys in +gpg+ "colon" output into a +Hash+
   class Parser
     # https://gitlab.com/openpgp-wg/rfc4880bis/blob/master/draft-koch-openpgp-rfc4880bis-02.txt,
     # section 9.1 Public Key Algorithms
@@ -15,7 +18,7 @@ module GpgKeyExpiryWarning
       20 => :reserved_elgamal_encrypt_or_sign,
       21 => :dh,
       22 => :eddsa
-    }
+    }.freeze
     public_constant :ALGORITHMS
 
     CAPABILITIES = {
@@ -23,7 +26,7 @@ module GpgKeyExpiryWarning
       c: :cert,
       e: :encrypt,
       s: :sign
-    }
+    }.freeze
     public_constant :CAPABILITIES
 
     FIELDS = {
@@ -48,7 +51,7 @@ module GpgKeyExpiryWarning
       19 => {symbol: :updated, conversion: ->(updated) { Parser.parse_datetime(updated) }}
       # 20 => { symbol: :origin, },
       # 21 => { symbol: :comment, },
-    }
+    }.freeze
     public_constant :FIELDS
 
     def self.parse_algorithm(text)
@@ -82,10 +85,10 @@ module GpgKeyExpiryWarning
         when :uid
           (keys.last[:uids] ||= []) << parsed
         when :fpr
-          if keys.last[:subkeys].nil?
-            keys.last[:fingerprint] = parsed[:user_id]
-          else
+          if keys.last[:subkeys]
             keys.last[:subkeys].last[:fingerprint] = parsed[:user_id]
+          else
+            keys.last[:fingerprint] = parsed[:user_id]
           end
         end
       end
@@ -100,11 +103,11 @@ module GpgKeyExpiryWarning
       FIELDS.each do |number, spec|
         value = fields[number - 1]
 
-        if value && !value.empty?
-          conversion = spec[:conversion]
-          value = conversion.call(value) if conversion
-          parsed[spec[:symbol]] = value
-        end
+        next unless value && !value.empty?
+
+        conversion = spec[:conversion]
+        value = conversion.call(value) if conversion
+        parsed[spec[:symbol]] = value
       end
 
       parsed
