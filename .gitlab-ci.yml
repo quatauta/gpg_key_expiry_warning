@@ -10,6 +10,12 @@ include:
   - template: 'Security/Secret-Detection.gitlab-ci.yml'
   - template: 'Workflows/MergeRequest-Pipelines.gitlab-ci.yml'
 
+stages:
+  - build
+  - test
+  - pages
+  - deploy
+
 cache:
   paths:
     - vendor
@@ -24,12 +30,12 @@ variables:
 test:
   stage: test
   script:
-    - apt-get update -qq && apt-get install -qq -y cmake ; apt-get clean -qq
     - ruby -v
     - ruby -e "puts Encoding.default_external"
     - gem install --quiet --no-document bundler
     - bundle config set deployment 'true'
-    - bundler install --quiet -j $(nproc)
+    - bundle config set jobs "$(nproc)"
+    - bundler install --quiet
     - bundle exec rake -t ci
   artifacts:
     expire_in: 1 day
@@ -39,7 +45,7 @@ test:
       junit: tmp/rspec.xml
 
 pages:
-  stage: deploy
+  stage: pages
   dependencies:
     - test
   script:
