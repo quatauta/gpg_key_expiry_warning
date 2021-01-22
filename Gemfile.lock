@@ -136,7 +136,7 @@ GEM
       rubocop-performance (= 1.9.2)
     terminal-table (1.8.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
-    thor (1.0.1)
+    thor (1.1.0)
     thread_safe (0.3.6)
     tty-which (0.4.2)
     unicode-display_width (1.7.0)
@@ -174,4 +174,4 @@ DEPENDENCIES
   standard (>= 0.11)
 
 BUNDLED WITH
-   2.2.3
+   2.2.6
