@@ -2,8 +2,8 @@ PATH
   remote: .
   specs:
     gpg_key_expiry_warning (0.1.0)
-      cri (>= 2.15)
-      zeitwerk (>= 2.4)
+      cri (~> 2.15.0)
+      zeitwerk (~> 2.4.0)
 
 GEM
   remote: https://rubygems.org/
@@ -59,7 +59,7 @@ GEM
     parser (3.0.0.0)
       ast (~> 2.4.1)
     path_expander (1.1.0)
-    pry (0.13.1)
+    pry (0.14.0)
       coderay (~> 1.1)
       method_source (~> 1.0)
     psych (3.3.0)
@@ -128,8 +128,8 @@ GEM
       simplecov_json_formatter (~> 0.1)
     simplecov-html (0.12.3)
     simplecov_json_formatter (0.1.2)
-    skunk (0.4.2)
-      rubycritic (~> 4.0)
+    skunk (0.5.0)
+      rubycritic (>= 4.5.2, < 5.0)
       terminal-table (~> 1.8.0)
     standard (0.12.0)
       rubocop (= 1.8.1)
@@ -152,26 +152,26 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  amazing_print (>= 1.2)
-  bundler (>= 2.1)
-  bundler-audit (>= 0.7)
-  bundler-leak (>= 0.2)
-  fasterer (>= 0.8)
-  fuubar (>= 2.5)
+  amazing_print (~> 1.2.0)
+  bundler (~> 2.1)
+  bundler-audit (~> 0.7.0)
+  bundler-leak (~> 0.2.0)
+  fasterer (~> 0.8.0)
+  fuubar (~> 2.5.0)
   gpg_key_expiry_warning!
-  libyear-bundler (>= 0.5)
-  pry (>= 0.13)
-  rake (>= 13.0)
-  rspec (>= 3.10)
-  rspec_junit_formatter (>= 0.4)
-  rubocop (>= 1.8)
-  rubocop-performance (>= 1.9)
-  rubocop-rake (>= 0.5)
-  rubocop-rspec (>= 2.2)
-  rubycritic (>= 4.5)
-  simplecov (>= 0.21)
-  skunk (>= 0.4)
-  standard (>= 0.12)
+  libyear-bundler (~> 0.5.0)
+  pry (~> 0.14.0)
+  rake (~> 13.0.0)
+  rspec (~> 3.10.0)
+  rspec_junit_formatter (~> 0.4.0)
+  rubocop (~> 1.8.0)
+  rubocop-performance (~> 1.9.0)
+  rubocop-rake (~> 0.5.0)
+  rubocop-rspec (~> 2.2.0)
+  rubycritic (~> 4.5.0)
+  simplecov (~> 0.21.0)
+  skunk (~> 0.5.0)
+  standard (~> 0.12.0)
 
 BUNDLED WITH
-   2.2.8
+   2.2.9
