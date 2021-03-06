@@ -45,8 +45,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rubocop-performance", "~> 1.10.1"
   spec.add_development_dependency "rubocop-rake", "~> 0.5.0"
   spec.add_development_dependency "rubocop-rspec", "~> 2.2.0"
-  spec.add_development_dependency "rubycritic", "~> 4.5.0"
-  spec.add_development_dependency "simplecov", "~> 0.21.0"
-  spec.add_development_dependency "skunk", "~> 0.5.0"
+  spec.add_development_dependency "rubycritic", "~> 4.6.0"
+  spec.add_development_dependency "simplecov", "~> 0.20.0"
   spec.add_development_dependency "standard", "~> 1.0.4"
 end

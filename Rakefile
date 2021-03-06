@@ -23,11 +23,6 @@ task :fasterer do
   sh "bundle exec fasterer"
 end
 
-desc "Run skunk"
-task :skunk do
-  sh "bundle exec skunk"
-end
-
 desc "Run libyear-bundler to measure dependency freshness"
 task :libyear do
   sh "bundle exec libyear-bundler --all"
@@ -43,8 +38,8 @@ end
 desc "Run tests"
 task test: %i[spec]
 
-desc "Run tasks for CI (bundle:audit bundle:leak rubocop:pass standard fasterer rubycritic skunk test)"
-task ci: %i[bundle:audit bundle:leak rubocop:pass standard fasterer rubycritic skunk test]
+desc "Run tasks for CI (bundle:audit bundle:leak rubocop:pass standard fasterer rubycritic test)"
+task ci: %i[bundle:audit bundle:leak rubocop:pass standard fasterer rubycritic test]
 
 desc "Run standard:fix and CI tasks"
 task default: %i[standard:fix ci]
